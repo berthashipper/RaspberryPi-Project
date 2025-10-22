@@ -12,7 +12,7 @@ sense = SenseHat()
 
 sense.clear()
 
-Y = [0, 100, 200]   # yellow
+Y = [0, 100, 200]
 B = [0, 0, 0]
 
 """ smiley1 = [
@@ -44,16 +44,18 @@ smiley_wink = [
 B,B,Y,Y,Y,Y,B,B,
 B,Y,B,B,B,B,Y,B,
 Y,B,B,B,B,Y,B,Y,
-Y,B,B,B,B,B,B,Y,
+Y,B,B,Y,Y,B,B,Y,
 Y,B,Y,B,B,Y,B,Y,
 Y,B,B,Y,Y,B,B,Y,
 B,Y,B,B,B,B,Y,B,
 B,B,Y,Y,Y,Y,B,B
 ]
 
-# Animate!
+sense.set_pixels(smiley_wink)
+
+""" # Animate!
 while True:
     sense.set_pixels(smiley_open)
     time.sleep(0.5)
     sense.set_pixels(smiley_wink)
-    time.sleep(0.2)
+    time.sleep(0.2) """
