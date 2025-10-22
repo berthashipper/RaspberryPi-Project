@@ -130,9 +130,11 @@ for article in articles:
 
     # show white center dot as divider
     sense.clear()
-    for i in range(CENTER_START, CENTER_START + 3):
-        for j in range(CENTER_START, CENTER_START + 3):
+    for i in range(CENTER_START, CENTER_START + 4):
+        for j in range(CENTER_START, CENTER_START + 4):
             sense.set_pixel(i, j, [255, 255, 255])
     time.sleep(0.5)
 
 sense.clear()
+
+# could print current average sentiment at end 
