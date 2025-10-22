@@ -117,11 +117,22 @@ for i, article in enumerate(articles, start=1):
     print("-" * 50)
 
 # --- display each keyword ---
+CENTER_START = 2
+
 for article in articles:
     keyword = article['keyword']
     color, _ = sentiment_to_color(article)
+
+    # show keyword
     sense.clear(color)
     sense.show_message(keyword, scroll_speed=0.05, text_colour=color)
     time.sleep(0.3)
+
+    # show white center dot as divider
+    sense.clear()
+    for i in range(CENTER_START, CENTER_START + 3):
+        for j in range(CENTER_START, CENTER_START + 3):
+            sense.set_pixel(i, j, [255, 255, 255])
+    time.sleep(0.5)
 
 sense.clear()
