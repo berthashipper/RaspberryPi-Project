@@ -9,21 +9,21 @@ import string
 sense = SenseHat()
 nlp = spacy.load("en_core_web_sm")
 
-# --- get top CNN news ---
+# --- get top BBC news ---
 mediastack_api_key = "5b65d5410513dd141509eeabf3c41b2b"
 url = (
     f"http://api.mediastack.com/v1/news?"
     f"access_key={mediastack_api_key}&languages=en&countries=us"
-    f"&sources=cnn&limit=30&sort=published_desc"
+    f"&sources=bbc&limit=30&sort=published_desc"
 )
 res = requests.get(url)
 data = res.json()
 
-# --- Remove duplicates, filter CNN articles ---
+# --- Remove duplicates, filter articles ---
 seen_urls = set()
 articles = []
 for article in data.get("data", []):
-    if article.get("source", "").lower().find("cnn") != -1 and article.get("url") not in seen_urls:
+    if article.get("source", "").lower() != -1 and article.get("url") not in seen_urls:
         seen_urls.add(article.get("url"))
         articles.append({
             "title": article.get("title"),
