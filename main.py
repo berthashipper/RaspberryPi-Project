@@ -14,10 +14,15 @@ CENTER_START = 2  # center dot start for 4x4 white divider
 
 def display_article(art):
     """Scroll the selected article's title and description, then return."""
+    # get sentiment color
+    color, _ = sentiment_to_color(art)
+
     sense.clear([0, 0, 0])
-    sense.show_message(f"Title: {art['title']}", scroll_speed=0.05, text_colour=[255,255,255])
+    sense.show_message(f"Title: {art['title']}", scroll_speed=0.05, text_colour=color)
+
     if art.get('description'):
-        sense.show_message(f"Desc: {art['description']}", scroll_speed=0.05, text_colour=[200,200,200])
+        sense.show_message(f"Desc: {art['description']}", scroll_speed=0.05, text_colour=color)
+
     time.sleep(0.5)
     sense.clear()
 
